@@ -3,6 +3,7 @@
         xmlns:vm="using:IBindingReplacement.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:extensions="clr-namespace:IBindingReplacement.Extensions"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="IBindingReplacement.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -15,6 +16,18 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <StackPanel Spacing="10">
+        <StackPanel>
+            <TextBlock Text="Direct assignment" />
+            <Path Data="{extensions:BindResource Key={Binding IconKey}}"
+                  Fill="Black" />
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="Using Style" />
+            <Path Classes="IconPath"
+                  Fill="Black" />
+        </StackPanel>
+    </StackPanel>
+
 
 </Window>

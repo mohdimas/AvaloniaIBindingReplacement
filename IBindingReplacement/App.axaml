@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="IBindingReplacement.App"
              xmlns:local="using:IBindingReplacement"
+             xmlns:extensions="clr-namespace:IBindingReplacement.Extensions"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
@@ -11,5 +12,14 @@
   
     <Application.Styles>
         <FluentTheme />
+
+        <Style Selector="Path.IconPath">
+            <Setter Property="Data"
+                    Value="{extensions:BindResource Key={ReflectionBinding IconKey}}" />
+        </Style>
     </Application.Styles>
+
+     <Application.Resources>
+         <StreamGeometry x:Key="Icon">M0 0 M20 20 M5 1C5 0.447715 5.44772 0 6 0H14C14.5523 0 15 0.447715 15 1V3H5V1Z M4 4C2.34315 4 1 5.34315 1 7V13C1 14.6569 2.34315 16 4 16L4 10L16 10L16 16C17.6569 16 19 14.6569 19 13V7C19 5.34315 17.6569 4 16 4H4ZM14 8C14.5523 8 15 7.55228 15 7C15 6.44772 14.5523 6 14 6C13.4477 6 13 6.44772 13 7C13 7.55228 13.4477 8 14 8Z M15 19C15 19.5523 14.5523 20 14 20L6 20C5.44772 20 5 19.5523 5 19V11H15L15 19ZM7 13H13V14H7V13ZM13 16H7V17H13V16Z</StreamGeometry>
+     </Application.Resources>
 </Application>
